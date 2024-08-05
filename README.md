@@ -1,8 +1,8 @@
-# Turborepo Nextjs Tailwind CSS starter
+# Turborepo Nextjs Tailwind CSS Storybook starter
 
 ## What's inside?
 
-This Turborepo includes the following packages/apps:
+This Turborepo includes the following
 
 ### Apps and Packages
 
