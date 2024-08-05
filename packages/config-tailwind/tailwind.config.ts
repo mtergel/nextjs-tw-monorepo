@@ -8,6 +8,7 @@ const config: Omit<Config, "content"> = {
           DEFAULT: "hsl(var(--primary))",
         },
         border: "hsl(var(--border))",
+        background: "hsl(var(--background))",
       },
     },
   },

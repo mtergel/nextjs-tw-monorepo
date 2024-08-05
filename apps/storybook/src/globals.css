@@ -1,7 +1,18 @@
+@import "@repo/themes/default.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  @import "@repo/themes/default.css";
+  /* sensible defaults */
+  * {
+    @apply border-border;
+  }
+
+  body {
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
 }

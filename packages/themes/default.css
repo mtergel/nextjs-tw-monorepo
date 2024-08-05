@@ -2,20 +2,11 @@
 :root {
   --primary: 263 91% 49%;
   --border: 233 27% 88%;
+  --background: 0 0% 99%;
 }
 
 .dark {
   --primary: 263 91% 49%;
   --border: 233 27% 88%;
-}
-
-/* sensible defaults */
-* {
-  @apply border-border;
-}
-
-body {
-  font-feature-settings:
-    "rlig" 1,
-    "calt" 1;
+  --background: 0 0% 99%;
 }

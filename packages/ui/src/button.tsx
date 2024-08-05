@@ -3,13 +3,13 @@ import { cn } from "@repo/utils/cn";
 import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
 
-const buttonVariants = cva("", {
+const buttonVariants = cva(["inline-flex items-center justify-center"], {
   variants: {
     variant: {
-      default: "",
+      default: ["bg-primary text-background"],
     },
     size: {
-      default: "",
+      default: ["h-9", "px-4 py-2"],
     },
   },
   defaultVariants: {
