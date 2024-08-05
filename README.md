@@ -1,4 +1,4 @@
-# Turborepo Tailwind CSS starter
+# Turborepo Nextjs Tailwind CSS starter
 
 ## What's inside?
 
@@ -12,29 +12,71 @@ This Turborepo includes the following packages/apps:
 
 Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 
-### Building packages/ui
+### Shared UI
 
-This example is set up to produce compiled styles for `ui` components into the `dist` directory. The component `.tsx` files are consumed by the Next.js apps directly using `transpilePackages` in `next.config.js`. This was chosen for several reasons:
+The UI library uses a styling solution similar to [shadcn](https://ui.shadcn.com/docs/installation/manual). To configure it
+Please checkout the following files.
 
-- Make sharing one `tailwind.config.js` to apps and packages as easy as possible.
-- Make package compilation simple by only depending on the Next.js Compiler and `tailwindcss`.
-- Ensure Tailwind classes do not overwrite each other. The `ui` package uses a `ui-` prefix for it's classes.
-- Maintain clear package export boundaries.
+- `packages/themes`: css theme
+- `packages/ui`: read me
+- `web`: `tailwind.config.ts`, `package.json`, `globals.css`, `next.config.js`
 
-Another option is to consume `packages/ui` directly from source without building. If using this option, you will need to update the `tailwind.config.js` in your apps to be aware of your package locations, so it can find all usages of the `tailwindcss` class names for CSS compilation.
+#### Shadcn
 
-For example, in [tailwind.config.js](packages/tailwind-config/tailwind.config.js):
+If you want to add components from [shadcn](https://ui.shadcn.com/). Go to their manual install [page](https://ui.shadcn.com/docs/installation/manual).
 
-```js
-  content: [
-    // app content
-    `src/**/*.{js,ts,jsx,tsx}`,
-    // include packages if not transpiling
-    "../../packages/ui/*.{js,ts,jsx,tsx}",
-  ],
-```
+1. Add Tailwind CSS
 
-If you choose this strategy, you can remove the `tailwindcss` and `autoprefixer` dependencies from the `ui` package.
+   Already installated can skip this step.
+
+2. Add dependencies
+
+   Add tailwind dependencies to our tailwind config. The rest are already installed
+
+   ```sh
+   pnpm add tailwindcss-animate -D --filter=config-tailwind
+   ```
+
+3. Add icon library
+
+   ```sh
+    pnpm add @radix-ui/react-icons -D --filter=ui
+   ```
+
+4. Configure path aliases
+
+   Update `packages/ui/tsconfig.json` to
+
+   ```json
+   {
+     "extends": "@repo/typescript-config/react-library.json",
+     "include": ["."],
+     "exclude": ["dist", "build", "node_modules"],
+     "compilerOptions": {
+       "baseUrl": "src/",
+       "paths": {
+         "@/*": ["./*"]
+       }
+     }
+   }
+   ```
+
+5. Configure tailwind.config.js
+
+   Update `packages/config-tailwind/tailwind.config.ts` to shadcn's config.
+
+6. Configure styles
+
+   Add css variables to our theme config in `packages/themes/default.css`.
+
+7. Add a cn helper
+
+   `cn` helper is in our internal package `packages/utils`
+
+8. That's it!
+
+   When adding components please use `manual` installation methods.
+   Then replace import statements to match.
 
 ### Utilities
 
