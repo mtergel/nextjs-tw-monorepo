@@ -1,6 +1,6 @@
 import type { StorybookConfig } from "@storybook/react-vite";
 
-import { join, dirname, resolve } from "path";
+import { dirname, join, resolve } from "path";
 
 /**
  * This function is used to resolve the absolute path of a package.
@@ -17,6 +17,7 @@ const config: StorybookConfig = {
     getAbsolutePath("@storybook/addon-essentials"),
     getAbsolutePath("@chromatic-com/storybook"),
     getAbsolutePath("@storybook/addon-interactions"),
+    getAbsolutePath("@storybook/addon-themes"),
   ],
   framework: {
     name: getAbsolutePath("@storybook/react-vite"),
@@ -41,8 +42,6 @@ const config: StorybookConfig = {
     };
   },
 
-  docs: {
-    autodocs: true,
-  },
+  docs: {},
 };
 export default config;

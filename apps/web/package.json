@@ -10,6 +10,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@next/bundle-analyzer": "^14.2.5",
     "@repo/ui": "workspace:*",
     "next": "^14.2.3",
     "postcss-import": "^16.1.0",
