@@ -4,7 +4,6 @@
   "license": "MIT",
   "type": "module",
   "exports": {
-    "./styles.css": "./dist/index.css",
     "./button": "./src/button.tsx"
   },
   "scripts": {
