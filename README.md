@@ -77,6 +77,7 @@ If you want to add components from [shadcn](https://ui.shadcn.com/). Go to their
 
    When adding components please use `manual` installation methods.
    Then replace import statements to match.
+   Also don't forget to add `exports` to `ui/package.json`
 
 ### Utilities
 
