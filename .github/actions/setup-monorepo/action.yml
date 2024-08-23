@@ -1,0 +1,34 @@
+name: Setup Monorepo
+description: Prepare and install everything for the monorepo
+
+inputs:
+  node-version:
+    description: Version of Node to use
+    default: 20.x
+
+runs:
+  using: composite
+  steps:
+    - name: 🏗 Setup pnpm
+      uses: pnpm/action-setup@v4
+
+    - name: 🏗 Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ inputs.node-version }}
+        cache: pnpm
+
+    - name: 📦 Install dependencies
+      run: pnpm install
+      shell: bash
+
+    - name: ♻️ Restore cache
+      uses: actions/cache@v4
+      with:
+        key: turbo-${{ runner.os }}-${{ github.sha }}
+        restore-keys: |
+          turbo-${{ runner.os }}
+        path: |
+          node_modules/.cache/turbo
+          apps/*/.turbo
+          packages/*/.turbo
