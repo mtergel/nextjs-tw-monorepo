@@ -38,6 +38,8 @@ module.exports = {
   rules: {
     "import/no-default-export": "off",
     "import/order": "off",
+    "@typescript-eslint/no-unsafe-assignment": "off",
+    "@typescript-eslint/no-unsafe-argument": "off",
   },
   overrides: [
     {

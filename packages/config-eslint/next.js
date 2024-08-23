@@ -44,5 +44,16 @@ module.exports = {
   rules: {
     "import/no-default-export": "off",
     "import/order": "off",
+    "@typescript-eslint/no-unsafe-assignment": "off",
+    "@typescript-eslint/no-unsafe-argument": "off",
+    "@typescript-eslint/no-misused-promises": [
+      "error",
+      {
+        // used for react-hook-form
+        checksVoidReturn: {
+          attributes: false,
+        },
+      },
+    ],
   },
 };
